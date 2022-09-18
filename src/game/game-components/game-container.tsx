@@ -4,11 +4,13 @@ import { GameEngine } from "../game-engine/game-engine";
 export const GameContainer = ({
     gameId,
     width = 1900,
-    height = 875
+    height = 875,
+    topOffset = 10
 }: {
     gameId: string;
     height?: number;
     width?: number;
+    topOffset?: number;
 }) => {
     const [game, setGame] = useState<GameEngine>();
 
@@ -28,7 +30,7 @@ export const GameContainer = ({
             className="flex w-full justify-center"
             style={{
                 position: "fixed",
-                top: "10px"
+                top: `${topOffset}px`
             }}
         >
             <canvas
