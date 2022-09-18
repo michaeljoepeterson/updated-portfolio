@@ -3,26 +3,43 @@ import { GameEngine } from "../game-engine/game-engine";
 
 export const GameContainer = ({
     gameId,
-    width = 1900,
-    height = 875,
     topOffset = 10
 }: {
     gameId: string;
-    height?: number;
-    width?: number;
     topOffset?: number;
 }) => {
+    const widthOffset = 10;
+    const heightOffset = 55;
     const [game, setGame] = useState<GameEngine>();
+    const [width, setWidth] = useState<number>(window.innerWidth - widthOffset);
+    const [height, setHeight] = useState<number>(window.innerHeight - heightOffset);
 
     const createGame = () => {
         setGame(new GameEngine(gameId));
         //figure out 100% screen size canvas
     }
 
+    const updateCanvasSize = (event: any) => {
+        try{
+            const {innerWidth, innerHeight} = event.target;
+            console.log(event);
+            console.log(event.target.innerWidth, event.target.innerHeight);
+            setWidth(innerWidth - widthOffset);
+            setHeight(innerHeight - heightOffset);
+        }
+        catch(e){
+            console.warn(e);
+        }
+    }
+
     useEffect(() => {
         if(!game){
             createGame();
         }
+
+        window.addEventListener('resize', updateCanvasSize);
+
+        return () => window.removeEventListener('resize', updateCanvasSize);
     }, []);
 
     return (

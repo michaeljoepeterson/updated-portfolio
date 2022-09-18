@@ -19,7 +19,6 @@ export class GameEngine{
         let test2 = 0;
 
         setInterval(() => {
-            console.log('rendering');
             this.canvasContext.clearRect(0, 0, this.canvasRef.width, this.canvasRef.height)
             this.render(test1, test2);
             test1 += 5;
@@ -33,6 +32,5 @@ export class GameEngine{
         this.canvasContext.fillStyle = "#FF0000";
         this.canvasContext.fill();
         this.canvasContext.closePath();
-        console.log('render');
     }
 };
