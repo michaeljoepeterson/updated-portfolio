@@ -15,15 +15,21 @@ export class GameEngine{
     }
 
     startGame(){
+        let test1 = 0;
+        let test2 = 0;
+
         setInterval(() => {
             console.log('rendering');
-            this.render();
-        }, 100);
+            this.canvasContext.clearRect(0, 0, this.canvasRef.width, this.canvasRef.height)
+            this.render(test1, test2);
+            test1 += 5;
+            test2 += 5;
+        }, 40);
     }
-
-    private render(){
+    //@ts-ignore
+    private render(x, y){
         this.canvasContext.beginPath();
-        this.canvasContext.rect(0, 0, 50, 50);
+        this.canvasContext.rect(x, y, 50, 50);
         this.canvasContext.fillStyle = "#FF0000";
         this.canvasContext.fill();
         this.canvasContext.closePath();
