@@ -16,7 +16,6 @@ export const GameContainer = ({
 
     const createGame = () => {
         setGame(new GameEngine(gameId));
-        //figure out 100% screen size canvas
     }
 
     const updateCanvasSize = (event: any) => {
