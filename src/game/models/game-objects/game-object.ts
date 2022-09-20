@@ -2,7 +2,7 @@ import { Circle } from "../shapes/game-shapes/circle";
 import { CustomShape } from "../shapes/game-shapes/custom-shapre";
 import { Rectanlge } from "../shapes/game-shapes/rectangle";
 import { ShapType } from "../shapes/shape-types";
-import { Shape } from "../shapes/shape.interface";
+import { Shape } from "../shapes/shape";
 
 export abstract class GameObject{
     name: string;
@@ -10,10 +10,22 @@ export abstract class GameObject{
      * the shape associated with the game object
      */
     shape: Shape;
+    private _canvasContext: CanvasRenderingContext2D;
+    get canvasContext(): CanvasRenderingContext2D{
+        return this._canvasContext
+    }
+    set canvasContext(value: CanvasRenderingContext2D){
+        this._canvasContext = value;
+    }
     
     constructor(name: string, shapeType?: ShapType){
         this.name = name;
         this.shape = this.getShape(shapeType);
+    }
+
+    init(canvasContext: CanvasRenderingContext2D){
+        console.log('init object', this.name);
+        this.canvasContext = canvasContext;
     }
 
     getShape(shapeType: ShapType): Shape{
@@ -32,10 +44,6 @@ export abstract class GameObject{
      */
     renderObject(){
         this.render();
-    }
-
-    init(){
-        console.log('init object', this.name);
     }
 
     /**

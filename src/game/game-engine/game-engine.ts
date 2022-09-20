@@ -28,12 +28,12 @@ export class GameEngine{
             this.render(test1, test2);
             test1 += 5;
             test2 += 5;
-        }, 40);
+        }, 35);
     }
 
     private initGameObjects(){
         for(let gameObject of this.gameObjects){
-            gameObject.init();
+            gameObject.init(this.canvasContext);
         }
     }
 

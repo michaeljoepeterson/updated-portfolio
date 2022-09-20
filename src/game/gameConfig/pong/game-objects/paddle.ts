@@ -1,15 +1,13 @@
 import { GameObject } from "../../../models/game-objects/game-object";
 import { ShapType } from "../../../models/shapes/shape-types";
 
-export class Ball extends GameObject{
+export class Paddle extends GameObject{
 
     constructor(name: string){
-        super(name, ShapType.circle);
+        super(name, ShapType.rectangle);
     }
 
-    protected render() {
-        console.log('I am a ball');
+    protected render(): void {
+        console.log('I am a paddle!', this.name);
     }
 }
-
-export const ball = new Ball('pong-ball');

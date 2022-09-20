@@ -1,5 +1,5 @@
 import { ShapType } from "../shape-types";
-import { Shape } from "../shape.interface";
+import { Shape } from "../shape";
 
 export class Rectanlge extends Shape{
 
@@ -7,7 +7,7 @@ export class Rectanlge extends Shape{
         super(shapeType);
     }
 
-    drawShape(canvasContext: CanvasRenderingContext2D, x: number, y: number): void {
-        console.log('draw rect', canvasContext, x, y);
+    drawShape(canvasContext: CanvasRenderingContext2D): void {
+        console.log('draw rect', canvasContext);
     }    
 }
