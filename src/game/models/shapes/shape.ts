@@ -7,23 +7,18 @@ import { ShapType } from "./shape-types";
  */
 export abstract class Shape{
     type: ShapType;
-    x: number;
-    y: number;
-    private movement: Vector = new Vector();
+    protected vector: Vector;
 
     constructor(type: ShapType, options: IShapeOptions){
         this.type = type;
-        this.x = options.x;
-        this.y = options.y;
-        this.movement.setDirection(options.xDirection, options.yDirection);
-        this.movement.setVelocity(options.xVelocity, options.yVelocity);
+        this.vector = new Vector(options.x, options.y)
+        this.vector.setDirection(options.xDirection, options.yDirection);
+        this.vector.setVelocity(options.xVelocity, options.yVelocity);
     }
-    //todo implement updates for movement
+    //todo implement updates for vector
     moveShape(canvasContext: CanvasRenderingContext2D){
         try{
-            const [x, y] = this.movement.updatePosition(this.x, this.y);
-            this.x = x;
-            this.y = y;
+            this.vector.updatePosition();
             this.drawShape(canvasContext);
         }
         catch(e){

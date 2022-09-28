@@ -5,12 +5,18 @@ export interface VectorOptions{
     yVelocity?: number;
     xDirection?: direction;
     yDirection?: direction;
+    x?: number;
+    y?: number;
 }
+
+type VectorPosition = number[];
 
 /**
  * basic class to help moving shapes
  */
 export class Vector{
+    private x: number = 0;
+    private y: number = 0;
     /**
      * the x direction the shape is moving
      */
@@ -28,6 +34,15 @@ export class Vector{
      */
     private yVelocity: number = 0;
 
+    get position(): VectorPosition{
+        return [this.x, this.y];
+    }
+
+    constructor(x?: number, y?: number){
+        this.x = x ? x : 0;
+        this.y = y ? y : 0;
+    }
+
     /**
      * take the provided current position and return an updated position
      * based off the current x and y direction and velocity
@@ -35,8 +50,11 @@ export class Vector{
      * @param y
      * @returns
      */
-    updatePosition(x: number, y: number): number[]{
-        return [x += (this.xVelocity * this.xDirection), y += (this.yVelocity * this.yDirection)];
+    updatePosition(): VectorPosition{
+        this.x += (this.xVelocity * this.xDirection);
+        this.y += (this.yVelocity * this.yDirection)
+        const position = [this.x, this.y];
+        return position;
     }
 
     setVelocity(xVelocity?: number, yVelocity?: number){

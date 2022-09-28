@@ -8,8 +8,9 @@ export class Circle extends Shape{
     }
 
     drawShape(canvasContext: CanvasRenderingContext2D): void {
+        const [x, y] = this.vector.position;
         canvasContext.beginPath();
-        canvasContext.arc(this.x, this.y, 50, 0, 2 * Math.PI);
+        canvasContext.arc(x, y, 50, 0, 2 * Math.PI);
         canvasContext.stroke();
     }
 }
