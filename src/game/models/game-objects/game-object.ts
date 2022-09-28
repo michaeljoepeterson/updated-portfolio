@@ -1,10 +1,12 @@
 import { Circle } from "../shapes/game-shapes/circle";
-import { CustomShape } from "../shapes/game-shapes/custom-shapre";
+import { CustomShape } from "../shapes/game-shapes/custom-shape";
 import { Rectanlge } from "../shapes/game-shapes/rectangle";
 import { ShapType } from "../shapes/shape-types";
 import { Shape } from "../shapes/shape";
+import { defaultOptions, IGameObjectOptions } from "./options/game-object-options.interface";
+import { IShapeOptions } from "./options/shape-options.interface";
 
-export abstract class GameObject{
+export class GameObject{
     name: string;
     /**
      * the shape associated with the game object
@@ -18,9 +20,9 @@ export abstract class GameObject{
         this._canvasContext = value;
     }
     
-    constructor(name: string, shapeType?: ShapType){
+    constructor(name: string, shapeType: ShapType, options: IGameObjectOptions = defaultOptions){
         this.name = name;
-        this.shape = this.getShape(shapeType);
+        this.shape = this.getShape(shapeType, options.shape);
     }
 
     init(canvasContext: CanvasRenderingContext2D){
@@ -28,26 +30,22 @@ export abstract class GameObject{
         this.canvasContext = canvasContext;
     }
 
-    getShape(shapeType: ShapType): Shape{
+    getShape(shapeType: ShapType, shapeOptions: IShapeOptions): Shape{
         switch(shapeType){
             case ShapType.circle:
-                return new Circle(shapeType);
+                return new Circle(shapeType, shapeOptions);
             case ShapType.rectangle:
-                return new Rectanlge(shapeType);
+                return new Rectanlge(shapeType, shapeOptions);
             case ShapType.custom:
-                return new CustomShape(shapeType);
+                return new CustomShape(shapeType, shapeOptions);
         }
     }
 
     /**
      * public method for game engine to use when rendering game object
      */
-    renderObject(){
-        this.render();
+    render(){
+        console.log('render object');
+        this.shape.moveShape(this.canvasContext);
     }
-
-    /**
-     * method to be implemented by inheriting object
-     */
-    protected abstract render(): void;
 }

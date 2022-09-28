@@ -28,7 +28,7 @@ export class GameEngine{
             this.render(test1, test2);
             test1 += 5;
             test2 += 5;
-        }, 35);
+        }, 1000 / 45);
     }
 
     private initGameObjects(){
@@ -41,7 +41,7 @@ export class GameEngine{
     private render(x, y){
         for(let gameObject of this.gameObjects){
             try{
-                gameObject.renderObject();
+                gameObject.render();
             }
             catch(e){
                 console.warn(`Error rendering gameObject ${gameObject.name}`, gameObject);
