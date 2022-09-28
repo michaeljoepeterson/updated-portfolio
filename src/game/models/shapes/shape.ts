@@ -1,5 +1,5 @@
 import { IShapeOptions } from "../game-objects/options/shape-options.interface";
-import { MovementHelper } from "../physics/movement-helper";
+import { Vector } from "../physics/vector";
 import { ShapType } from "./shape-types";
 
 /**
@@ -9,7 +9,7 @@ export abstract class Shape{
     type: ShapType;
     x: number;
     y: number;
-    private movement: MovementHelper = new MovementHelper();
+    private movement: Vector = new Vector();
 
     constructor(type: ShapType, options: IShapeOptions){
         this.type = type;

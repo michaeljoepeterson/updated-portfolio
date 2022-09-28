@@ -1,6 +1,6 @@
 export type direction = 1 | -1;
 
-export interface MovementOptions{
+export interface VectorOptions{
     xVelocity?: number;
     yVelocity?: number;
     xDirection?: direction;
@@ -10,7 +10,7 @@ export interface MovementOptions{
 /**
  * basic class to help moving shapes
  */
-export class MovementHelper{
+export class Vector{
     /**
      * the x direction the shape is moving
      */

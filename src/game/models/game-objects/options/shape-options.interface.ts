@@ -1,6 +1,6 @@
-import { direction, MovementOptions } from "../../physics/movement-helper";
+import { direction, VectorOptions } from "../../physics/vector";
 
-export type IShapeOptions = MovementOptions & {
+export type IShapeOptions = VectorOptions & {
     x?: number;
     y?: number;
     lineColor?: string;
