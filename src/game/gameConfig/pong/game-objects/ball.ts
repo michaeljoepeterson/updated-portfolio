@@ -4,7 +4,7 @@ import { ShapType } from "../../../models/shapes/shape-types";
 
 export const ball = new GameObject('pong-ball', ShapType.circle, {
     shape: new ShapeOptions({
-        xVelocity: 5,
-        yVelocity: 5
+        xVelocity: 2,
+        yVelocity: 2
     })
 });

@@ -9,6 +9,11 @@ export class Rectanlge extends Shape{
     }
 
     drawShape(canvasContext: CanvasRenderingContext2D): void {
-        console.log('draw rect', canvasContext);
+        //console.log('draw rect', canvasContext);
+        canvasContext.beginPath();
+        canvasContext.rect(this.x, this.y, 50, 50);
+        canvasContext.fillStyle = "#FF0000";
+        canvasContext.fill();
+        canvasContext.closePath();
     }    
 }

@@ -18,7 +18,7 @@ export abstract class Shape{
         this.movement.setDirection(options.xDirection, options.yDirection);
         this.movement.setVelocity(options.xVelocity, options.yVelocity);
     }
-
+    //todo implement updates for movement
     moveShape(canvasContext: CanvasRenderingContext2D){
         try{
             const [x, y] = this.movement.updatePosition(this.x, this.y);

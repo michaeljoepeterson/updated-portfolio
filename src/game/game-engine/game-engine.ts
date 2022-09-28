@@ -20,14 +20,10 @@ export class GameEngine{
 
     startGame(){
         this.initGameObjects();
-        let test1 = 0;
-        let test2 = 0;
 
         setInterval(() => {
             this.canvasContext.clearRect(0, 0, this.canvasRef.width, this.canvasRef.height)
-            this.render(test1, test2);
-            test1 += 5;
-            test2 += 5;
+            this.render();
         }, 1000 / 45);
     }
 
@@ -38,7 +34,7 @@ export class GameEngine{
     }
 
     //@ts-ignore
-    private render(x, y){
+    private render(){
         for(let gameObject of this.gameObjects){
             try{
                 gameObject.render();
@@ -48,10 +44,5 @@ export class GameEngine{
                 console.error(e);
             }
         }
-        this.canvasContext.beginPath();
-        this.canvasContext.rect(x, y, 50, 50);
-        this.canvasContext.fillStyle = "#FF0000";
-        this.canvasContext.fill();
-        this.canvasContext.closePath();
     }
 };

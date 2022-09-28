@@ -36,7 +36,7 @@ export class MovementHelper{
      * @returns
      */
     updatePosition(x: number, y: number): number[]{
-        return [];
+        return [x += (this.xVelocity * this.xDirection), y += (this.yVelocity * this.yDirection)];
     }
 
     setVelocity(xVelocity?: number, yVelocity?: number){
