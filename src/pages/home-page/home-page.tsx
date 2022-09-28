@@ -14,9 +14,12 @@ export const HomePage = () => {
                 topOffset={navHeight}
             />
             <div style={{
-                height: "900px"
+                height: "2500px"
             }}>
                 more stuff
+            </div>
+            <div>
+                end stuff
             </div>
         </div>
     )
