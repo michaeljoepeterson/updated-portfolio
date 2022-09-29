@@ -8,8 +8,10 @@ import { ShapType } from "./shape-types";
 export abstract class Shape{
     type: ShapType;
     protected vector: Vector;
+    protected options: IShapeOptions;
 
     constructor(type: ShapType, options: IShapeOptions){
+        this.options = {...options};
         this.type = type;
         this.vector = new Vector(options.x, options.y)
         this.vector.setDirection(options.xDirection, options.yDirection);

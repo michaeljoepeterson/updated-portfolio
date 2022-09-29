@@ -5,6 +5,8 @@ import { ShapType } from "../../../models/shapes/shape-types";
 export const playerPaddle = new GameObject("playerPaddle", ShapType.rectangle, {
     shape: new ShapeOptions({
         xVelocity: 1,
-        yVelocity: 0
+        yVelocity: 0,
+        width: 20,
+        height: 100
     })
 });

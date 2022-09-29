@@ -66,4 +66,9 @@ export class Vector{
         this.xDirection = xDirection ? xDirection : this.xDirection;
         this.yDirection = yDirection ? yDirection : this.yDirection;
     }
+
+    setPosition(position: VectorPosition){
+        this.x = position[0];
+        this.y = position[1];
+    }
 }
