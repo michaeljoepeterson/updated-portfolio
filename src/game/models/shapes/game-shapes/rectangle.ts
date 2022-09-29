@@ -17,8 +17,9 @@ export class Rectanlge extends Shape{
         const [x, y] = this.vector.position;
         canvasContext.beginPath();
         canvasContext.rect(x, y, this.options.width, this.options.height);
-        canvasContext.fillStyle = "#FF0000";
+        canvasContext.fillStyle = this.options.fillColor;
         canvasContext.fill();
+        canvasContext.stroke();
         canvasContext.closePath();
     }    
 }

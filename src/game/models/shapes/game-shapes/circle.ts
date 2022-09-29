@@ -15,6 +15,9 @@ export class Circle extends Shape{
         const [x, y] = this.vector.position;
         canvasContext.beginPath();
         canvasContext.arc(x, y, this.options.radius, 0, 2 * Math.PI);
+        canvasContext.fillStyle = this.options.fillColor;
+        canvasContext.fill();
         canvasContext.stroke();
+        canvasContext.closePath();
     }
 }

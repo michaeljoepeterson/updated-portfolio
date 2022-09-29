@@ -7,6 +7,7 @@ export const playerPaddle = new GameObject("playerPaddle", ShapType.rectangle, {
         xVelocity: 1,
         yVelocity: 0,
         width: 20,
-        height: 100
+        height: 100,
+        fillColor: 'green'
     })
 });
