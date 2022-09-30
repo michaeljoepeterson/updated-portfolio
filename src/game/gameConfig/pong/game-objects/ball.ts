@@ -1,6 +1,7 @@
-import { GameObject } from "../../../models/game-objects/game-object";
-import { ShapeOptions } from "../../../models/game-objects/options/shape-options.interface";
-import { ShapType } from "../../../models/shapes/shape-types";
+import { GameObject } from "../../../game-engine/models/game-objects/game-object";
+import { ShapeOptions } from "../../../game-engine/models/game-objects/options/shape-options.interface";
+import { ShapType } from "../../../game-engine/models/shapes/shape-types";
+
 
 export const ball = new GameObject('pong-ball', ShapType.circle, {
     shape: new ShapeOptions({

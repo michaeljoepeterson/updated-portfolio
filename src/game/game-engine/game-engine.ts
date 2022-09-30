@@ -1,4 +1,4 @@
-import { GameObject } from "../models/game-objects/game-object";
+import { GameObject } from "./models/game-objects/game-object";
 
 export class GameEngine{
     private canvasRef?: HTMLCanvasElement;
@@ -10,7 +10,6 @@ export class GameEngine{
             this.canvasRef = document.getElementById(canvasId) as HTMLCanvasElement;
             this.canvasContext = this.canvasRef.getContext('2d');
             this.gameObjects = [...gameObjects];
-            console.log(this.canvasRef);
             this.startGame();
         }
         catch(e){
