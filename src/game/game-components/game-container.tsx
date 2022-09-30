@@ -9,7 +9,7 @@ export const GameContainer = ({
     gameId: string;
     topOffset?: number;
 }) => {
-    const widthOffset = 10;
+    const widthOffset = 35;
     const heightOffset = 55;
     const [game, setGame] = useState<GameEngine>();
     const [width, setWidth] = useState<number>(window.innerWidth - widthOffset);

@@ -1,13 +1,16 @@
+import { InputManager } from "./input-manager/input-manager";
 import { GameObject } from "./models/game-objects/game-object";
 
 export class GameEngine{
     private canvasRef?: HTMLCanvasElement;
     private canvasContext: CanvasRenderingContext2D;
     private gameObjects: GameObject[];
+    private input: InputManager;
 
     constructor(canvasId: string, gameObjects: GameObject[] = []){
         try{
             this.canvasRef = document.getElementById(canvasId) as HTMLCanvasElement;
+            this.input = new InputManager(this.canvasRef);
             this.canvasContext = this.canvasRef.getContext('2d');
             this.gameObjects = [...gameObjects];
             this.startGame();

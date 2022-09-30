@@ -6,6 +6,10 @@ import { Shape } from "../shapes/shape";
 import { defaultOptions, IGameObjectOptions } from "./options/game-object-options.interface";
 import { IShapeOptions } from "./options/shape-options.interface";
 
+/**
+ * base game object
+ * this renders a shape and rerenders that shape each render cycle
+ */
 export class GameObject{
     name: string;
     /**
@@ -26,7 +30,6 @@ export class GameObject{
     }
 
     init(canvasContext: CanvasRenderingContext2D){
-        console.log('init object', this.name);
         this.canvasContext = canvasContext;
     }
 
@@ -45,7 +48,6 @@ export class GameObject{
      * public method for game engine to use when rendering game object
      */
     render(){
-        console.log('render object');
         this.shape.moveShape(this.canvasContext);
     }
 }
