@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { GameEngine } from "../game-engine/game-engine";
-import { pongGameObjects } from "../gameConfig/pong";
+import { pongGameObjects, pongTriggers } from "../gameConfig/pong";
 
 export const GameContainer = ({
     gameId,
@@ -16,7 +16,8 @@ export const GameContainer = ({
     const [height, setHeight] = useState<number>(window.innerHeight - heightOffset);
 
     const createGame = () => {
-        setGame(new GameEngine(gameId, pongGameObjects));
+        //todo implement dynamic game loading
+        setGame(new GameEngine(gameId, pongGameObjects, pongTriggers));
     }
 
     const updateCanvasSize = (event: any) => {
