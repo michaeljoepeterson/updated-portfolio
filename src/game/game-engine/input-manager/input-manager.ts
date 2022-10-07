@@ -8,7 +8,7 @@ import { ITriggerOptions, TriggerAction } from "./models/trigger-options";
 export class InputManager{
     private canvas: HTMLCanvasElement;
     private triggers: Trigger[] = [];
-    private mousePosition: VectorPosition;
+    private mousePosition: VectorPosition = [0, 0];
 
     constructor(canvas: HTMLCanvasElement){
         this.canvas = canvas;
