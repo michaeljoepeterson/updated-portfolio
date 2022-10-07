@@ -50,4 +50,8 @@ export class GameObject{
     render(){
         this.shape.moveShape(this.canvasContext);
     }
+
+    changePosition(x: number, y: number){
+        this.shape.setPosition(x, y, this.canvasContext)
+    }
 }

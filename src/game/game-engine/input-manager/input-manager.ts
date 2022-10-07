@@ -1,5 +1,6 @@
+import { VectorPosition } from "../models/physics/vector";
 import { Trigger } from "./models/trigger";
-import { ITriggerOptions } from "./models/trigger-options";
+import { ITriggerOptions, TriggerAction } from "./models/trigger-options";
 
 /**
  * manager for handling player inputs
@@ -7,6 +8,7 @@ import { ITriggerOptions } from "./models/trigger-options";
 export class InputManager{
     private canvas: HTMLCanvasElement;
     private triggers: Trigger[] = [];
+    private mousePosition: VectorPosition;
 
     constructor(canvas: HTMLCanvasElement){
         this.canvas = canvas;
@@ -26,9 +28,10 @@ export class InputManager{
         this.canvas.addEventListener("mousemove", (event) => {
             console.log('mouse move', event);
             //@ts-ignore
-            var bounds = event.target.getBoundingClientRect();
-            var x = event.clientX - bounds.left;
-            var y = event.clientY - bounds.top;
+            const bounds = event.target.getBoundingClientRect();
+            const x = event.clientX - bounds.left;
+            const y = event.clientY - bounds.top;
+            this.mousePosition = [x, y];
             console.log(x, y);
         });
     }
@@ -50,6 +53,18 @@ export class InputManager{
      * called every render to run registered triggers
      */
     runTriggers(){
-        this.triggers.forEach(trigger => trigger.run());
+        this.triggers.forEach(trigger => this.run(trigger));
+    }
+
+    run(trigger: Trigger){
+        const {action} = trigger;
+        switch(action){
+            case TriggerAction.move:
+                trigger.move(this.mousePosition[0], this.mousePosition[1]);
+                break;
+            default:
+                console.warn("Please provide a trigger action")
+                break;
+        }
     }
 }

@@ -49,6 +49,7 @@ export class GameEngine{
     private render(){
         for(let gameObject of this.gameObjects){
             try{
+                this.input.runTriggers();
                 gameObject.render();
             }
             catch(e){

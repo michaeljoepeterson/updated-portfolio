@@ -28,6 +28,11 @@ export abstract class Shape{
         }
     }
 
+    setPosition(x: number, y: number, canvasContext: CanvasRenderingContext2D){
+        this.vector.setPosition([x, y]);
+        this.drawShape(canvasContext);
+    }
+
     /**
      * method to draw the specific type of shape on the canvas
      * @param canvasContext

@@ -5,7 +5,7 @@ import { ShapType } from "../../../game-engine/models/shapes/shape-types";
 //todo make custom games possible
 export const playerPaddle = new GameObject("playerPaddle", ShapType.rectangle, {
     shape: new ShapeOptions({
-        xVelocity: 1,
+        xVelocity: 0,
         yVelocity: 0,
         width: 20,
         height: 100,

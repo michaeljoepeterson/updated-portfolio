@@ -9,7 +9,7 @@ export interface VectorOptions{
     y?: number;
 }
 
-type VectorPosition = number[];
+export type VectorPosition = number[];
 
 /**
  * basic class to help moving shapes

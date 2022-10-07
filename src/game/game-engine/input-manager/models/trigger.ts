@@ -34,10 +34,15 @@ export class Trigger implements ITriggerOptions{
     run(){
         switch(this.action){
             case TriggerAction.move:
+                
                 break;
             default:
                 console.warn("Please provide a trigger action")
                 break;
         }
+    }
+
+    move(x: number, y: number){
+        this.target.changePosition(x, y);
     }
 }
